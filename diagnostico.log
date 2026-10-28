@@ -1,18 +1,18 @@
 ======================================
-Reporte de Diagnóstico - 2026-10-28 17:55:29
+Reporte de Diagnóstico - 2026-10-28 18:09:07
 ======================================
 
 [DISCO] Estado del almacenamiento en raíz:
 Filesystem      Size  Used Avail Use% Mounted on
-/dev/sda2        25G  7.3G   16G  32% /
+/dev/sda2        25G  7.4G   16G  32% /
 
 [MEMORIA] Uso de RAM:
                total        used        free      shared  buff/cache   available
-Mem:            5346        1346        2645          61        1643        3999
+Mem:            5346        1378        2436          62        1826        3967
 Swap:              0           0           0
 
-[SERVICIOS] Revisando sshd:
-ESTADO: OK - El servicio sshd está corriendo.
+[SERVICIOS] Revisando servicios caídos en el sistema:
+ESTADO: OK - Todos los servicios están operando correctamente.
 
 Diagnóstico finalizado.
 

@@ -19,11 +19,12 @@ echo -e "\n[MEMORIA] Uso de RAM:" >> "$LOG_FILE"
 free -m >> "$LOG_FILE"
 
 # 3. Diagnóstico de Servicios (Mejora: Evaluación condicional)
-echo -e "\n[SERVICIOS] Revisando $SERVICIO:" >> "$LOG_FILE"
-if systemctl is-active --quiet "$SERVICIO"; then
-    echo "ESTADO: OK - El servicio $SERVICIO está corriendo." >> "$LOG_FILE"
+echo -e "\n[SERVICIOS] Revisando servicios caídos en el sistema:" >> "$LOG_FILE"
+if systemctl --failed --type=service | grep -q "0 loaded units listed"; then
+    echo "ESTADO: OK - Todos los servicios están operando correctamente." >> "$LOG_FILE"
 else
-    echo "ALERTA CRÍTICA: El servicio $SERVICIO está caído." >> "$LOG_FILE"
+    echo "ALERTA CRÍTICA: Los siguientes servicios están con fallas" >> "$LOG_FILE"
+	systemctl --failed --type=service --no-pager >> "$LOG_FILE"
 fi
 
 echo -e "\nDiagnóstico finalizado.\n" >> "$LOG_FILE"
